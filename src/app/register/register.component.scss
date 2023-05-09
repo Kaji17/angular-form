@@ -1,0 +1,72 @@
+.registerContentComponent {
+    width: 100%;
+    >div{
+        background-color: #008080;
+        padding: 0.5em;
+        color: white;
+        margin-bottom: 1em;
+        font-weight: bold;
+        font-size: 1.5em;
+    }
+    border: 0.5px solid rgb(219, 219, 219);
+
+}
+
+.formsContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr*4;
+    column-gap: 1em;
+    row-gap: 1em;
+    justify-content: flex-start;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-bottom: 0.5em;
+
+    &__field {
+        display: flex;
+        align-items: center;
+        &--d-flex {
+            display: flex;
+            flex-direction: column;
+        }
+        &--input{
+            height: 2em;
+        }
+    }
+
+
+}
+.contentBtn{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 0.5em;
+    padding-bottom: 0.5em;
+
+}
+.btnRemplirParDefaut{
+    height: 3em;
+    border: 1px solid #008080;
+    background-color: white;
+    color: #008080;
+    border-radius: 5px;
+    padding: 0.5em;
+    margin-right: 1em;
+    cursor: pointer;
+}
+.btnSauvegarder{
+    height: 3em;
+    border: 1px solid #008080;
+    background-color: #008080;
+    color: white;
+    border-radius: 5px;
+    padding: 0.5em;
+    cursor: pointer;
+}
+.cole4{
+  grid-column: 1/span 4;
+}
+
+.cole2{
+  grid-column: span 2;
+}

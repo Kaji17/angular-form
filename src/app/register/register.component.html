@@ -1,0 +1,130 @@
+<div class="registerContentComponent">
+  <div>
+    <span>S'enregistrer</span>
+  </div>
+
+  <form (ngSubmit)="saveData()" [formGroup]="registerForm" novalidate>
+    <div class="formsContent">
+      <div class="formsContent__field--d-flexs cole2 ">
+        <div class="formsContent__field--d-flex ">
+          <label for="userName">Nom</label>
+          <input type="text" id="userName" placeholder="Nom" class="formsContent__field--input form-control" required
+            formControlName="firstName"
+            [ngClass]="{'is-valid': registerForm.get('firstName')?.touched &&  registerForm.get('firstName')?.valid}">
+        </div>
+        <div class="invalid-feedback">
+          <span *ngIf=" registerForm.get('firstName')?.errors">
+            Entrez votre nom
+          </span>
+        </div>
+      </div>
+      <div class="formsContent__field--d-flex cole2">
+        <div class="formsContent__field--d-flex">
+          <label for="userSurName">Prénoms</label>
+          <input type="text" id="userSurName" placeholder="Prénoms" class="formsContent__field--input form-control"
+            formControlName="lastName" required
+            [ngClass]="{'is-valid': registerForm.get('lastName')?.touched &&  registerForm.get('lastName')?.valid}">
+          <div class="invalid-feedback">
+            <span *ngIf="registerForm.get('lastName')?.errors">
+              Entrez votre prénom
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="formsContent__field--d-flex cole2">
+        <div class="formsContent__field--d-flex">
+          <label for="userEmail">E-mail</label>
+          <input type="email" id="userEmail" placeholder="E-mail (required)"
+            class="formsContent__field--input form-control"
+            formControlName="email"
+            required
+            email
+            [ngClass]="{'is-valid': registerForm.get('email')?.touched &&  registerForm.get('email')?.valid}"
+            >
+          <div class="invalid-feedback">
+            <span *ngIf=" registerForm.get('email')?.errors?.['required']">
+              Entrez votre adresse E-mail
+            </span>
+            <span *ngIf=" registerForm.get('email')?.errors?.['email']">
+              Entrez une adresse mail valide
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="formsContent__field--d-flex">
+        <label for="userConfirmEmail">Confirmer E-mail</label>
+        <input type="email" id="userConfirmEmail" required placeholder="Confirm E-mail (required)"
+          class="formsContent__field--input form-control">
+        <p>{{ error }}</p>
+      </div> -->
+      <!-- <div class="formsContent__field--d-flex">
+        <label for="userPhone">Phone</label>
+        <input type="text" id="userPhone" placeholder="Phone" class="formsContent__field--input form-control">
+        <p>{{ error }}</p>
+      </div>
+      <div class="formsContent__field--d-flex">
+        <div>
+          <label>Recevoir des notification</label>
+        </div>
+        <div>
+          <label for="receiveEmail">E-mail</label>
+          <input type="radio" id="receiveEmail" name="radioEmailOrtexte">
+
+          <label for="receiveTexte">Texte</label>
+          <input type="radio" id="receiveTexte" name="radioEmailOrtexte">
+
+        </div>
+      </div>
+      <div class="formsContent__field--d-flex">
+        <label for="userNote">Note</label>
+        <input type="text" id="userNote" class="formsContent__field--input">
+        <p>{{ error }}</p>
+      </div> -->
+      <div class="formsContent__field">
+      </div>
+      <div class="formsContent__field cole4">
+        <input type="checkbox"
+        id="userChoice"
+        formControlName="sendCatalog"
+        >
+        <label for="userChoice">Oui, je souhaite recevoir de la publicité.</label>
+      </div>
+
+      <div *ngIf="user.sendCatalog" class="formsContent cole4">
+        <div class="formsContent__field--d-flex cole4">
+          <label for="adresse1">Adresse 1</label>
+          <input type="text" id="adresse1" placeholder="" class="formsContent__field--input form-control">
+        </div>
+        <div class="formsContent__field--d-flex cole4 ">
+          <label for="adresse1">Adresse 2</label>
+          <input type="text" id="adresse2" placeholder=" " class="formsContent__field--input form-control">
+        </div>
+        <div class="formsContent__field--d-flex cole2">
+          <label for="adresse1">Ville</label>
+          <input type="text" id="adresse1" placeholder="" class="formsContent__field--input form-control">
+        </div>
+        <div class="formsContent__field--d-flex ">
+          <label for="adresse1">Departement</label>
+          <select class="form-control">
+            <option value="">Selectionner une région</option>
+            <option value="Lac">Lac</option>
+            <option value="Lagune">Lagune</option>
+            <option value="Bélier">Bélier</option>
+            <option value="Hambol">Hambol</option>
+            <option value="Gbêkê">Gbêkê</option>
+          </select>
+        </div>
+        <div class="formsContent__field--d-flex">
+          <label for="codePostal">Code Postal</label>
+          <input type="text" id="codePostal" placeholder="codePostal" class="formsContent__field--input form-control">
+        </div>
+      </div>
+    </div>
+
+    <div class="contentBtn">
+      <!-- <button class="btnRemplirParDefaut">Remplir les champs par défaut</button> -->
+      <button type="submit" class="btnSauvegarder" [disabled]="!registerForm.valid">Sauvegarder</button>
+    </div>
+  </form>
+</div>
